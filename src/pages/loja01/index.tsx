@@ -1,45 +1,22 @@
-import Header from '../../components/layout/Header'
-import Footer from '../../components/layout/Footer'
-import Hero from '../../components/sections/Hero'
-import Features from '../../components/sections/Features'
-
-const STORE_NAME = 'Loja 01'
-
-const NAV_LINKS = [
-  { label: 'Produtos', href: '#produtos' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Contato', href: '#contato' },
-]
-
-const FEATURES = [
-  { icon: '🚀', title: 'Entrega Rápida', description: 'Receba seu pedido em até 24 horas na sua porta.' },
-  { icon: '💳', title: 'Pagamento Seguro', description: 'Diversas formas de pagamento com total segurança.' },
-  { icon: '🔄', title: 'Troca Fácil', description: 'Política de troca simples e sem burocracia.' },
-]
-
 export default function Loja01() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header
-        logo={<span className="text-indigo-600">{STORE_NAME}</span>}
-        links={NAV_LINKS}
-        ctaLabel="Comprar agora"
-        ctaHref="#produtos"
-      />
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-950 text-white px-6 text-center gap-6">
+      <div className="flex flex-col items-center gap-4 max-w-md">
+        <span className="text-5xl">🚧</span>
 
-      <main className="flex-1">
-        <Hero
-          badge="Novidade"
-          title="Os melhores produtos com o melhor preço"
-          subtitle="Qualidade garantida e entrega em todo o Brasil. Aproveite nossas ofertas exclusivas."
-          ctaPrimary={{ label: 'Ver produtos', href: '#produtos' }}
-          ctaSecondary={{ label: 'Saiba mais', href: '#sobre' }}
-        />
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+          Em construção
+        </h1>
 
-        <Features title="Por que nos escolher?" features={FEATURES} />
-      </main>
+        <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+          Estamos preparando algo especial. Em breve esta página estará disponível.
+        </p>
 
-      <Footer storeName={STORE_NAME} />
+        <div className="flex items-center gap-2 mt-2">
+          <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+          <span className="text-xs text-gray-500 uppercase tracking-widest">Em breve</span>
+        </div>
+      </div>
     </div>
   )
 }
