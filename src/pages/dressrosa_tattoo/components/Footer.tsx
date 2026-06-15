@@ -1,67 +1,76 @@
-import { C, SANS, INSTAGRAM, WHATSAPP } from '../constants'
-
-export default function Footer() {
+export default function Footer({ theme, fonts, instagram }: any) {
   return (
-    <footer
-      style={{
-        backgroundColor: C.bg,
-        borderTop: `2px solid ${C.gold}`,
-        padding: '2rem',
-        textAlign: 'center',
-        fontFamily: SANS,
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '2rem',
-            marginBottom: '1.5rem',
-            flexWrap: 'wrap',
-          }}
-        >
-          {(() => {
-            const links = [
-              { label: 'Instagram', url: INSTAGRAM },
-              { label: 'WhatsApp', url: WHATSAPP },
-            ]
-            const items = []
-            for (let i = 0; i < links.length; i++) {
-              const link = links[i]
-              items.push(
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: C.gold,
-                    textDecoration: 'none',
-                    fontSize: '1.3rem',
-                    transition: 'color 0.3s',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = C.goldLight)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = C.gold)}
-                >
-                  {link.label}
-                </a>,
-              )
-            }
-            return items
-          })()}
-        </div>
+    <footer style={{ background: theme.bg2, padding: '72px 52px 48px', textAlign: 'center', borderTop: `1px solid rgba(201,169,110,0.15)` }}>
+      <div style={{ fontFamily: fonts.title, fontSize: '36px', letterSpacing: '5px', color: theme.accent, marginBottom: '4px' }}>DRESS ROSA</div>
+      <p style={{ fontSize: '11px', letterSpacing: '5px', color: '#444', textTransform: 'uppercase', marginBottom: '40px' }}>Tattoo Studio</p>
 
-        <p
+      <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', marginBottom: '40px', flexWrap: 'wrap' }}>
+        <a
+          href={instagram}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            color: C.textMuted,
-            fontSize: '0.9rem',
-            margin: 0,
+            color: theme.muted,
+            textDecoration: 'none',
+            fontSize: '12px',
+            letterSpacing: '2.5px',
+            textTransform: 'uppercase',
+            transition: 'color 0.3s',
           }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = theme.accent)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = theme.muted)}
         >
-          © 2024 Dressrosa Tattoo. Todos os direitos reservados.
-        </p>
+          Instagram
+        </a>
+        <a
+          href="#portfolio"
+          style={{
+            color: theme.muted,
+            textDecoration: 'none',
+            fontSize: '12px',
+            letterSpacing: '2.5px',
+            textTransform: 'uppercase',
+            transition: 'color 0.3s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = theme.accent)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = theme.muted)}
+        >
+          Portfólio
+        </a>
+        <a
+          href="#agendamento"
+          style={{
+            color: theme.muted,
+            textDecoration: 'none',
+            fontSize: '12px',
+            letterSpacing: '2.5px',
+            textTransform: 'uppercase',
+            transition: 'color 0.3s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = theme.accent)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = theme.muted)}
+        >
+          Agendar
+        </a>
+        <a
+          href="#faq"
+          style={{
+            color: theme.muted,
+            textDecoration: 'none',
+            fontSize: '12px',
+            letterSpacing: '2.5px',
+            textTransform: 'uppercase',
+            transition: 'color 0.3s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = theme.accent)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = theme.muted)}
+        >
+          FAQ
+        </a>
       </div>
+
+      <div style={{ width: '48px', height: '1px', background: 'rgba(201,169,110,0.15)', margin: '0 auto 28px' }} />
+      <p style={{ fontSize: '11px', color: '#333', letterSpacing: '1px' }}>© 2026 Dress Rosa Tattoo · Todos os direitos reservados.</p>
     </footer>
   )
 }
