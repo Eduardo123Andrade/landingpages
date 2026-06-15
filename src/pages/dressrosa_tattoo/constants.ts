@@ -58,22 +58,10 @@ export const SERVICES = [
 
 export const ARTISTS = [
   {
-    name: 'Rosa Silva',
-    specialty: 'Tatuagem Realista',
-    experience: '8 anos',
-    image: '/images/dressrosa-tattoo/artist1.jpg',
-  },
-  {
-    name: 'Ana Costa',
-    specialty: 'Estilo Delicado',
-    experience: '6 anos',
-    image: '/images/dressrosa-tattoo/artist2.jpg',
-  },
-  {
-    name: 'Marina Santos',
-    specialty: 'Cobertura & Rework',
-    experience: '7 anos',
-    image: '/images/dressrosa-tattoo/artist3.jpg',
+    name: 'Rosa',
+    specialty: 'Mestre em Anime, Realista e Linework',
+    experience: '8+ anos',
+    image: '/images/dressrosa-tattoo/tatuadora/587652654_17868795972472898_4056990377599748810_n.jpg',
   },
 ]
 
