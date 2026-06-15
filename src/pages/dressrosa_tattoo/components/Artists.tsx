@@ -20,14 +20,15 @@ export default function Artists() {
             fontWeight: 'bold',
           }}
         >
-          Nossos Artistas
+          Nossa Tatuadora
         </h2>
 
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 280px))',
             gap: '1.5rem',
+            justifyContent: 'center',
           }}
         >
           {(() => {
