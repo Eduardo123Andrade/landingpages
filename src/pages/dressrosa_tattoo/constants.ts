@@ -35,24 +35,24 @@ export const GALLERY = [
 
 export const SERVICES = [
   {
-    icon: '🎨',
-    title: 'Tatuagem Personalizada',
-    description: 'Designs exclusivos criados especialmente para você, transformando suas ideias em arte.',
+    icon: '⚔️',
+    title: 'Anime & Manga',
+    description: 'Especializados em personagens e cenas de anime/manga com detalhes impressionantes.',
+  },
+  {
+    icon: '🐉',
+    title: 'Realista & Detalhado',
+    description: 'Tatuagens altamente detalhadas com sombreamento realista e profundidade.',
   },
   {
     icon: '✨',
-    title: 'Cobertura e Rework',
-    description: 'Especializados em cobrir tatuagens antigas ou melhorar designs pré-existentes.',
+    title: 'Linework & Tribal',
+    description: 'Designs com linhas precisas e padrões tribais modernos e elegantes.',
   },
   {
-    icon: '👁️',
-    title: 'Arte Realista',
-    description: 'Tatuagens fotorrealistas e detalhadas que capturam cada nuance.',
-  },
-  {
-    icon: '🌸',
-    title: 'Estilo Delicado',
-    description: 'Pequenas e médias tatuagens com traços precisos e elegantes.',
+    icon: '🔄',
+    title: 'Cobertura & Personalizado',
+    description: 'Cobrimos tatuagens antigas e criamos designs totalmente personalizados para você.',
   },
 ]
 
