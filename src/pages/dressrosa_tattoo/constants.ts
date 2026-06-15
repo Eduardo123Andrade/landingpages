@@ -1,8 +1,8 @@
-export const WHATSAPP = 'https://wa.me/558199999999'
+export const WHATSAPP = 'https://wa.me/558791134703'
 export const INSTAGRAM = 'https://instagram.com/dressrosatattoo'
-export const PHONE = '(81) 9 9999-9999'
+export const PHONE = '+55 (87) 9113-4703'
 export const EMAIL = 'contato@dressrosatattoo.com'
-export const ADDRESS = 'Rua Fictícia, 123 - Recife, PE'
+export const ADDRESS = 'Arcoverde - Pernambuco'
 
 export const SERIF = "'Playfair Display', Georgia, serif"
 export const SANS = "'Nunito', system-ui, sans-serif"
@@ -58,9 +58,9 @@ export const SERVICES = [
 
 export const ARTISTS = [
   {
-    name: 'Rosa',
+    name: 'Karol',
     specialty: 'Mestre em Anime, Realista e Linework',
-    experience: '8+ anos',
+    experience: '6+ anos',
     image: '/images/dressrosa-tattoo/tatuadora/587652654_17868795972472898_4056990377599748810_n.jpg',
   },
 ]
