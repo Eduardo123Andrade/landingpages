@@ -39,8 +39,7 @@ export default function Hero({ theme, fonts }: any) {
           }}
         >
           DRESS
-          <br />
-          <em style={{ fontStyle: 'italic', color: theme.accent2 }}>Rosa</em>
+          <em style={{ fontStyle: 'italic', color: theme.accent2 }}>ROSA</em>
         </h1>
 
         <p style={{ fontFamily: fonts.title, fontSize: 'clamp(12px, 1.4vw, 16px)', letterSpacing: '8px', textTransform: 'uppercase', color: 'rgba(240,237,230,0.3)', marginTop: '16px' }}>TATTOO STUDIO</p>

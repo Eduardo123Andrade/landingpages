@@ -101,7 +101,7 @@ export default function DressrosaTattoo() {
             textTransform: 'uppercase',
           }}
         >
-          Dress Rosa
+          DressRosa
         </a>
 
         <div style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>

@@ -1,7 +1,7 @@
 export default function Footer({ theme, fonts, instagram }: any) {
   return (
     <footer style={{ background: theme.bg2, padding: '72px 52px 48px', textAlign: 'center', borderTop: `1px solid rgba(201,169,110,0.15)` }}>
-      <div style={{ fontFamily: fonts.title, fontSize: '36px', letterSpacing: '5px', color: theme.accent, marginBottom: '4px' }}>DRESS ROSA</div>
+      <div style={{ fontFamily: fonts.title, fontSize: '36px', letterSpacing: '5px', color: theme.accent, marginBottom: '4px' }}>DRESSROSA</div>
       <p style={{ fontSize: '11px', letterSpacing: '5px', color: '#444', textTransform: 'uppercase', marginBottom: '40px' }}>Tattoo Studio</p>
 
       <div style={{ display: 'flex', gap: '40px', justifyContent: 'center', marginBottom: '40px', flexWrap: 'wrap' }}>
