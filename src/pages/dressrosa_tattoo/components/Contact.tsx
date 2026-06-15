@@ -165,18 +165,25 @@ export default function Contact() {
               gap: '0.8rem',
             }}
           >
-            {SCHEDULE.map((item, index) => (
-              <p
-                key={index}
-                style={{
-                  color: C.text,
-                  fontFamily: SANS,
-                  fontSize: '1rem',
-                }}
-              >
-                {item}
-              </p>
-            ))}
+            {(() => {
+              const items = []
+              for (let i = 0; i < SCHEDULE.length; i++) {
+                const item = SCHEDULE[i]
+                items.push(
+                  <p
+                    key={i}
+                    style={{
+                      color: C.text,
+                      fontFamily: SANS,
+                      fontSize: '1rem',
+                    }}
+                  >
+                    {item}
+                  </p>,
+                )
+              }
+              return items
+            })()}
           </div>
         </div>
       </div>

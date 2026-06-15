@@ -21,37 +21,35 @@ export default function Footer() {
             flexWrap: 'wrap',
           }}
         >
-          <a
-            href={INSTAGRAM}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: C.gold,
-              textDecoration: 'none',
-              fontSize: '1.3rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = C.goldLight)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = C.gold)}
-          >
-            Instagram
-          </a>
-
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: C.gold,
-              textDecoration: 'none',
-              fontSize: '1.3rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = C.goldLight)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = C.gold)}
-          >
-            WhatsApp
-          </a>
+          {(() => {
+            const links = [
+              { label: 'Instagram', url: INSTAGRAM },
+              { label: 'WhatsApp', url: WHATSAPP },
+            ]
+            const items = []
+            for (let i = 0; i < links.length; i++) {
+              const link = links[i]
+              items.push(
+                <a
+                  key={i}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: C.gold,
+                    textDecoration: 'none',
+                    fontSize: '1.3rem',
+                    transition: 'color 0.3s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = C.goldLight)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = C.gold)}
+                >
+                  {link.label}
+                </a>,
+              )
+            }
+            return items
+          })()}
         </div>
 
         <p

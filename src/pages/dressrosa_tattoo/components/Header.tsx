@@ -33,23 +33,30 @@ export default function Header() {
         </div>
 
         <nav style={{ display: 'flex', gap: '2rem', fontFamily: SANS }}>
-          {NAV_LINKS.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              style={{
-                color: C.text,
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                transition: 'color 0.3s',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = C.gold)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = C.text)}
-            >
-              {label}
-            </a>
-          ))}
+          {(() => {
+            const items = []
+            for (let i = 0; i < NAV_LINKS.length; i++) {
+              const [label, href] = NAV_LINKS[i]
+              items.push(
+                <a
+                  key={href}
+                  href={href}
+                  style={{
+                    color: C.text,
+                    textDecoration: 'none',
+                    fontSize: '0.95rem',
+                    transition: 'color 0.3s',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = C.gold)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = C.text)}
+                >
+                  {label}
+                </a>,
+              )
+            }
+            return items
+          })()}
         </nav>
       </div>
     </header>

@@ -30,62 +30,69 @@ export default function Services() {
             gap: '2rem',
           }}
         >
-          {SERVICES.map((service, index) => (
-            <div
-              key={index}
-              style={{
-                backgroundColor: C.bgCard,
-                padding: '2rem',
-                borderRadius: '4px',
-                border: `1px solid ${C.border}`,
-                textAlign: 'center',
-                transition: 'border-color 0.3s, transform 0.3s',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget
-                el.style.borderColor = C.gold
-                el.style.transform = 'translateY(-5px)'
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget
-                el.style.borderColor = C.border
-                el.style.transform = 'translateY(0)'
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '3rem',
-                  marginBottom: '1rem',
-                }}
-              >
-                {service.icon}
-              </div>
+          {(() => {
+            const items = []
+            for (let i = 0; i < SERVICES.length; i++) {
+              const service = SERVICES[i]
+              items.push(
+                <div
+                  key={i}
+                  style={{
+                    backgroundColor: C.bgCard,
+                    padding: '2rem',
+                    borderRadius: '4px',
+                    border: `1px solid ${C.border}`,
+                    textAlign: 'center',
+                    transition: 'border-color 0.3s, transform 0.3s',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget
+                    el.style.borderColor = C.gold
+                    el.style.transform = 'translateY(-5px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget
+                    el.style.borderColor = C.border
+                    el.style.transform = 'translateY(0)'
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '3rem',
+                      marginBottom: '1rem',
+                    }}
+                  >
+                    {service.icon}
+                  </div>
 
-              <h3
-                style={{
-                  fontSize: '1.3rem',
-                  color: C.gold,
-                  marginBottom: '0.8rem',
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: 'bold',
-                }}
-              >
-                {service.title}
-              </h3>
+                  <h3
+                    style={{
+                      fontSize: '1.3rem',
+                      color: C.gold,
+                      marginBottom: '0.8rem',
+                      fontFamily: "'Playfair Display', serif",
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {service.title}
+                  </h3>
 
-              <p
-                style={{
-                  color: C.textMuted,
-                  fontFamily: SANS,
-                  lineHeight: 1.6,
-                  fontSize: '0.95rem',
-                }}
-              >
-                {service.description}
-              </p>
-            </div>
-          ))}
+                  <p
+                    style={{
+                      color: C.textMuted,
+                      fontFamily: SANS,
+                      lineHeight: 1.6,
+                      fontSize: '0.95rem',
+                    }}
+                  >
+                    {service.description}
+                  </p>
+                </div>,
+              )
+            }
+            return items
+          })()}
         </div>
       </div>
     </section>
