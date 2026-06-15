@@ -18,12 +18,14 @@ export const FONTS = {
 
 // Data
 export const PORTFOLIO_ITEMS = [
-  { title: 'Going Merry', cat: 'One Piece', style: 'Anime' },
-  { title: 'Nezuko', cat: 'Demon Slayer', style: 'Anime' },
-  { title: 'Gojo Satoru', cat: 'Jujutsu Kaisen', style: 'Anime' },
-  { title: 'Malenia', cat: 'Elden Ring', style: 'Game' },
-  { title: 'Chosen Undead', cat: 'Dark Souls', style: 'Game' },
-  { title: 'Gothic Floral', cat: 'Dark Art', style: 'Gothic' },
+  { title: 'Going Merry', cat: 'One Piece', style: 'Anime', image: '503155415_1910311736386608_2694609311203047203_n.jpg' },
+  { title: 'Demon Slayer', cat: 'Anime Character', style: 'Anime', image: '622830745_18114433921540055_6335793013099189872_n.jpg' },
+  { title: 'One Piece Scene', cat: 'Anime', style: 'Anime', image: '626696947_17999866391707579_8233394182758402595_n.jpg' },
+  { title: 'Character Design', cat: 'Anime Art', style: 'Anime', image: '652069771_18182764840372508_6501742954716435082_n.jpg' },
+  { title: 'Creature Realista', cat: 'Dark Art', style: 'Gothic', image: '652769662_18124728958574807_6192233046711309889_n.jpg' },
+  { title: 'Dragon Realismo', cat: 'Dark Souls', style: 'Game', image: '653453798_18021191423814871_7242604518645629047_n.jpg' },
+  { title: 'Creature Details', cat: 'Dark Art', style: 'Gothic', image: '655669885_18096826822824197_2730132313483325618_n.jpg' },
+  { title: 'Anime Dragon', cat: 'Game & Anime', style: 'Anime', image: '669722435_18577992022029434_4672916109041805702_n.jpg' },
 ]
 
 export const ESTILOS = [

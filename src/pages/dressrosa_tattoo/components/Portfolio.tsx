@@ -10,30 +10,86 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3px' }} data-reveal>
-            {items.map((item: any, i: number) => (
-              <div
-                key={i}
-                onClick={() => setLightboxIdx(i)}
-                style={{
-                  aspectRatio: '1',
-                  background: theme.bg3,
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'transform 0.4s ease',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(0.97)')}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-              >
-                <div style={{ position: 'absolute', inset: 0, background: `repeating-linear-gradient(-45deg, ${theme.bg3}, ${theme.bg3} 12px, ${theme.bg2} 12px, ${theme.bg2} 24px)` }} />
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '24px', textAlign: 'center' }}>
-                  <p style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: theme.accent }}>{item.style}</p>
-                  <p style={{ fontFamily: fonts.title, fontSize: '20px', color: theme.text }}>{item.title}</p>
-                  <p style={{ fontSize: '13px', color: theme.muted, fontStyle: 'italic' }}>{item.cat}</p>
+            {items.map((item: any, i: number) => {
+              const imageUrl = `/images/dressrosa-tattoo/${item.image || `tattoo${i + 1}.jpg`}`
+              return (
+                <div
+                  key={i}
+                  onClick={() => setLightboxIdx(i)}
+                  style={{
+                    aspectRatio: '1',
+                    background: theme.bg3,
+                    cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'transform 0.4s ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(0.97)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                >
+                  <img
+                    src={imageUrl}
+                    alt={item.title}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                      const div = e.currentTarget.nextElementSibling as HTMLElement
+                      if (div) div.style.display = 'flex'
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: `repeating-linear-gradient(-45deg, ${theme.bg3}, ${theme.bg3} 12px, ${theme.bg2} 12px, ${theme.bg2} 24px)`,
+                      display: 'none',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      padding: '24px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    <p style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: theme.accent }}>{item.style}</p>
+                    <p style={{ fontFamily: fonts.title, fontSize: '20px', color: theme.text }}>{item.title}</p>
+                    <p style={{ fontSize: '13px', color: theme.muted, fontStyle: 'italic' }}>{item.cat}</p>
+                  </div>
+
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6))',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      padding: '24px',
+                      textAlign: 'center',
+                      opacity: 0,
+                      transition: 'opacity 0.35s',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = '0')}
+                  >
+                    <p style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: theme.accent }}>{item.style}</p>
+                    <p style={{ fontFamily: fonts.title, fontSize: '20px', color: theme.text }}>{item.title}</p>
+                    <p style={{ fontSize: '13px', color: theme.muted, fontStyle: 'italic' }}>{item.cat}</p>
+                  </div>
+
+                  <div style={{ position: 'absolute', inset: 0, border: '1px solid transparent', transition: 'border-color 0.35s' }} />
                 </div>
-                <div style={{ position: 'absolute', inset: 0, border: '1px solid transparent', transition: 'border-color 0.35s' }} />
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
