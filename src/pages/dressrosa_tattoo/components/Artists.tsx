@@ -27,7 +27,7 @@ export default function Artists() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem',
+            gap: '1.5rem',
           }}
         >
           {(() => {
@@ -39,22 +39,32 @@ export default function Artists() {
                   key={i}
                   style={{
                     textAlign: 'center',
-                    borderRadius: '4px',
-                    overflow: 'hidden',
                   }}
                 >
                   <div
                     style={{
                       aspectRatio: '1',
                       backgroundColor: C.gray,
-                      marginBottom: '1.5rem',
                       borderRadius: '4px',
                       overflow: 'hidden',
                       border: `2px solid ${C.border}`,
+                      cursor: 'pointer',
+                      transition: 'transform 0.3s, border-color 0.3s',
+                      marginBottom: '1.5rem',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '4rem',
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget
+                      el.style.transform = 'scale(1.05)'
+                      el.style.borderColor = C.gold
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget
+                      el.style.transform = 'scale(1)'
+                      el.style.borderColor = C.border
                     }}
                   >
                     <img
