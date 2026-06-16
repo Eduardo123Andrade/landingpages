@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react'
 import { THEME, FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM, WHATSAPP } from './constants'
+
+const FONT_OPTIONS = [
+  { label: 'DM Serif', family: "'DM Serif Display', Georgia, serif" },
+  { label: 'BEBAS NEUE', family: "'Bebas Neue', Impact, sans-serif" },
+  { label: 'Playfair', family: "'Playfair Display', Georgia, serif" },
+]
 import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
 import Estilos from './components/Estilos'
@@ -11,11 +17,13 @@ import Footer from './components/Footer'
 
 export default function DressrosaTattoo() {
   const [theme, setTheme] = useState(THEMES_DATA[1])
+  const [fontIdx, setFontIdx] = useState(0)
   const [navStyle, setNavStyle] = useState({})
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null)
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null)
   const [formSent, setFormSent] = useState(false)
   const [switcherOpen, setSwitcherOpen] = useState(false)
+  const currentFont = FONT_OPTIONS[fontIdx]
 
   useEffect(() => {
     const root = document.documentElement
@@ -24,7 +32,8 @@ export default function DressrosaTattoo() {
     root.style.setProperty('--bg3', theme.bg3)
     root.style.setProperty('--accent', theme.accent)
     root.style.setProperty('--accent2', theme.accent2)
-  }, [theme])
+    root.style.setProperty('--font-title', currentFont.family)
+  }, [theme, fontIdx])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,10 +147,7 @@ export default function DressrosaTattoo() {
               {THEMES_DATA.map((t, i) => (
                 <button
                   key={i}
-                  onClick={() => {
-                    setTheme(t)
-                    setSwitcherOpen(false)
-                  }}
+                  onClick={() => setTheme(t)}
                   title={t.name}
                   style={{
                     width: '32px',
@@ -154,6 +160,31 @@ export default function DressrosaTattoo() {
                     padding: 0,
                   }}
                 />
+              ))}
+            </div>
+
+            <p style={{ fontSize: '9px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '12px' }}>Tipografia</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {FONT_OPTIONS.map((font, i) => (
+                <button
+                  key={i}
+                  onClick={() => setFontIdx(i)}
+                  style={{
+                    background: 'none',
+                    border: `1px solid ${i === fontIdx ? theme.accent : 'rgba(201,169,110,0.15)'}`,
+                    color: i === fontIdx ? theme.accent : '#555',
+                    padding: '8px 10px',
+                    cursor: 'pointer',
+                    fontSize: '15px',
+                    fontFamily: font.family,
+                    textAlign: 'left',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = theme.accent)}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = i === fontIdx ? theme.accent : 'rgba(201,169,110,0.15)')}
+                >
+                  {font.label}
+                </button>
               ))}
             </div>
           </div>
