@@ -15,7 +15,7 @@ export default function Sobre({ theme, fonts, instagram }: any) {
 
         <div>
           <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '18px' }}>A Artista</p>
-          <h2 style={{ fontFamily: fonts.title, fontSize: 'clamp(36px, 4vw, 56px)', lineHeight: 1.05, marginBottom: '36px' }}>
+          <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(36px, 4vw, 56px)', lineHeight: 1.05, marginBottom: '36px' }}>
             A Arte que
             <br />
             <em style={{ fontStyle: 'italic', color: theme.accent2 }}>Vive</em> na Pele

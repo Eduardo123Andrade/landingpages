@@ -9,13 +9,13 @@ export default function Agendamento({ theme, fonts, formSent, setFormSent }: any
       <div style={{ maxWidth: '680px', margin: '0 auto' }} data-reveal>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Contato</p>
-          <h2 style={{ fontFamily: fonts.title, fontSize: 'clamp(36px, 5vw, 60px)' }}>Agendar Tattoo</h2>
+          <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(36px, 5vw, 60px)' }}>Agendar Tattoo</h2>
           <div style={{ width: '56px', height: '1px', background: theme.accent, margin: '22px auto 0' }} />
         </div>
 
         {formSent ? (
           <div style={{ textAlign: 'center', padding: '48px 32px', border: `1px solid rgba(201,169,110,0.15)`, animation: 'fadeUp 0.5s ease both' }}>
-            <p style={{ fontFamily: fonts.title, fontSize: '28px', color: theme.accent, marginBottom: '12px' }}>Mensagem enviada</p>
+            <p style={{ fontFamily: 'var(--font-title)', fontSize: '28px', color: theme.accent, marginBottom: '12px' }}>Mensagem enviada</p>
             <p style={{ fontSize: '16px', color: theme.muted, fontStyle: 'italic', lineHeight: 1.8 }}>Entraremos em contato em breve. ♥</p>
             <button
               onClick={() => setFormSent(false)}

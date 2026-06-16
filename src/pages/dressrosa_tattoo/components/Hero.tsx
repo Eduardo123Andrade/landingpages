@@ -31,7 +31,7 @@ export default function Hero({ theme, fonts }: any) {
 
         <h1
           style={{
-            fontFamily: fonts.title,
+            fontFamily: 'var(--font-title)',
             fontSize: 'clamp(72px, 11vw, 152px)',
             lineHeight: 0.88,
             letterSpacing: '-2px',
@@ -42,7 +42,7 @@ export default function Hero({ theme, fonts }: any) {
           <em style={{ fontStyle: 'italic', color: theme.accent2 }}>ROSA</em>
         </h1>
 
-        <p style={{ fontFamily: fonts.title, fontSize: 'clamp(12px, 1.4vw, 16px)', letterSpacing: '8px', textTransform: 'uppercase', color: 'rgba(240,237,230,0.3)', marginTop: '16px' }}>TATTOO STUDIO</p>
+        <p style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(12px, 1.4vw, 16px)', letterSpacing: '8px', textTransform: 'uppercase', color: 'rgba(240,237,230,0.3)', marginTop: '16px' }}>TATTOO STUDIO</p>
 
         <div style={{ width: '1px', height: '48px', background: `linear-gradient(to bottom, ${theme.accent}, transparent)`, margin: '36px auto' }} />
 

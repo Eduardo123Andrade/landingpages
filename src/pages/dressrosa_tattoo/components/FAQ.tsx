@@ -4,7 +4,7 @@ export default function FAQ({ theme, fonts, items, openIdx, setOpenIdx }: any) {
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <div data-reveal style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Dúvidas</p>
-          <h2 style={{ fontFamily: fonts.title, fontSize: 'clamp(36px, 4vw, 56px)' }}>Perguntas Frequentes</h2>
+          <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(36px, 4vw, 56px)' }}>Perguntas Frequentes</h2>
         </div>
 
         {items.map((faq: any, i: number) => (
@@ -24,7 +24,7 @@ export default function FAQ({ theme, fonts, items, openIdx, setOpenIdx }: any) {
                 gap: '24px',
               }}
             >
-              <span style={{ fontFamily: fonts.title, fontSize: '19px', color: theme.text, fontWeight: 400, lineHeight: 1.3 }}>{faq.q}</span>
+              <span style={{ fontFamily: 'var(--font-title)', fontSize: '19px', color: theme.text, fontWeight: 400, lineHeight: 1.3 }}>{faq.q}</span>
               <span style={{ color: theme.accent, fontSize: '22px', lineHeight: 1, flexShrink: 0, width: '24px', textAlign: 'center' }}>{openIdx === i ? '−' : '+'}</span>
             </button>
 

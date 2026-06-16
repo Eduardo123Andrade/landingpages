@@ -4,7 +4,7 @@ export default function Precos({ theme, fonts, items }: any) {
       <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
         <div data-reveal style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Investimento</p>
-          <h2 style={{ fontFamily: fonts.title, fontSize: 'clamp(40px, 5vw, 68px)' }}>Preços</h2>
+          <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(40px, 5vw, 68px)' }}>Preços</h2>
           <div style={{ width: '56px', height: '1px', background: theme.accent, margin: '22px auto 0' }} />
         </div>
 
@@ -24,7 +24,7 @@ export default function Precos({ theme, fonts, items }: any) {
             >
               {preco.destaque && <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: `linear-gradient(90deg, transparent, ${theme.accent}, transparent)` }} />}
               <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '20px' }}>{preco.tier}</p>
-              <p style={{ fontFamily: fonts.title, fontSize: '52px', color: theme.text, lineHeight: 1 }}>{preco.valor}</p>
+              <p style={{ fontFamily: 'var(--font-title)', fontSize: '52px', color: theme.text, lineHeight: 1 }}>{preco.valor}</p>
               <p style={{ fontSize: '12px', color: '#555', marginBottom: '36px', letterSpacing: '1px', fontStyle: 'italic' }}>{preco.sub}</p>
               <div style={{ width: '32px', height: '1px', background: 'rgba(201,169,110,0.15)', margin: '0 auto 36px' }} />
               {preco.items.map((item: string, j: number) => (

@@ -5,7 +5,7 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <div data-reveal style={{ textAlign: 'center', marginBottom: '64px' }}>
             <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Galeria</p>
-            <h2 style={{ fontFamily: fonts.title, fontSize: 'clamp(40px, 5vw, 68px)', lineHeight: 1 }}>Trabalhos Recentes</h2>
+            <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(40px, 5vw, 68px)', lineHeight: 1 }}>Trabalhos Recentes</h2>
             <div style={{ width: '56px', height: '1px', background: theme.accent, margin: '22px auto 0' }} />
           </div>
 
@@ -59,7 +59,7 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
                     }}
                   >
                     <p style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: theme.accent }}>{item.style}</p>
-                    <p style={{ fontFamily: fonts.title, fontSize: '20px', color: theme.text }}>{item.title}</p>
+                    <p style={{ fontFamily: 'var(--font-title)', fontSize: '20px', color: theme.text }}>{item.title}</p>
                     <p style={{ fontSize: '13px', color: theme.muted, fontStyle: 'italic' }}>{item.cat}</p>
                   </div>
 
@@ -82,7 +82,7 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
                     onMouseLeave={(e) => (e.currentTarget.style.opacity = '0')}
                   >
                     <p style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: theme.accent }}>{item.style}</p>
-                    <p style={{ fontFamily: fonts.title, fontSize: '20px', color: theme.text }}>{item.title}</p>
+                    <p style={{ fontFamily: 'var(--font-title)', fontSize: '20px', color: theme.text }}>{item.title}</p>
                     <p style={{ fontSize: '13px', color: theme.muted, fontStyle: 'italic' }}>{item.cat}</p>
                   </div>
 
@@ -121,7 +121,7 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
           >
             <div style={{ position: 'absolute', inset: 0, background: `repeating-linear-gradient(-45deg, ${theme.bg3}, ${theme.bg3} 12px, ${theme.bg2} 12px, ${theme.bg2} 24px)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '14px' }}>
               <p style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent }}>{items[lightboxIdx].style}</p>
-              <p style={{ fontFamily: fonts.title, fontSize: '32px', color: theme.text }}>{items[lightboxIdx].title}</p>
+              <p style={{ fontFamily: 'var(--font-title)', fontSize: '32px', color: theme.text }}>{items[lightboxIdx].title}</p>
               <p style={{ fontSize: '15px', color: theme.muted, fontStyle: 'italic' }}>{items[lightboxIdx].cat}</p>
               <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.15)', margin: '8px 0' }} />
               <p style={{ fontSize: '10px', color: '#333', letterSpacing: '3px', textTransform: 'uppercase' }}>foto do portfólio</p>
