@@ -1,15 +1,38 @@
+import React from "react"
+
 export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightboxIdx }: any) {
+  const [touchStart, setTouchStart] = React.useState(0)
+  const [touchEnd, setTouchEnd] = React.useState(0)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientY)
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTouchEnd(e.changedTouches[0].clientY)
+    handleSwipe()
+  }
+
+  const handleSwipe = () => {
+    if (touchStart - touchEnd > 50) {
+      setLightboxIdx((lightboxIdx + 1) % items.length)
+    }
+    if (touchEnd - touchStart > 50) {
+      setLightboxIdx((lightboxIdx - 1 + items.length) % items.length)
+    }
+  }
+
   return (
     <>
-      <section id="portfolio" style={{ padding: '108px 52px', background: theme.bg2 }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          <div data-reveal style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Galeria</p>
-            <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(40px, 5vw, 68px)', lineHeight: 1 }}>Trabalhos Recentes</h2>
-            <div style={{ width: '56px', height: '1px', background: theme.accent, margin: '22px auto 0' }} />
+      <section id="portfolio" className="py-16 md:py-20 lg:py-24 px-6 md:px-8 lg:px-12" style={{ background: theme.bg2 }}>
+        <div className="max-w-6xl mx-auto">
+          <div data-reveal className="text-center mb-12 md:mb-16 lg:mb-20">
+            <p className="text-xs md:text-sm lg:text-base tracking-widest uppercase mb-3 md:mb-4" style={{ color: theme.accent }}>Galeria</p>
+            <h2 className="font-title text-4xl md:text-5xl lg:text-6xl leading-tight">Trabalhos Recentes</h2>
+            <div className="w-14 h-px mx-auto mt-4 md:mt-6" style={{ background: theme.accent }} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '3px' }} data-reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1" data-reveal>
             {items.map((item: any, i: number) => {
               const imageUrl = `/images/dressrosa-tattoo/${item.image || `tattoo${i + 1}.jpg`}`
               return (
@@ -97,6 +120,16 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
       {lightboxIdx !== null && (
         <div
           onClick={() => setLightboxIdx(null)}
+          onWheel={(e) => {
+            // e.preventDefault()
+            if (e.deltaY > 0) {
+              setLightboxIdx((lightboxIdx + 1) % items.length)
+            } else {
+              setLightboxIdx((lightboxIdx - 1 + items.length) % items.length)
+            }
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{
             position: 'fixed',
             inset: 0,
@@ -105,6 +138,7 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            overflow: 'hidden',
           }}
         >
           <div
@@ -117,9 +151,29 @@ export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightbo
               position: 'relative',
               border: `1px solid rgba(201,169,110,0.15)`,
               animation: 'fadeUp 0.3s ease both',
+              overflow: 'hidden',
             }}
           >
-            <div style={{ position: 'absolute', inset: 0, background: `repeating-linear-gradient(-45deg, ${theme.bg3}, ${theme.bg3} 12px, ${theme.bg2} 12px, ${theme.bg2} 24px)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '14px' }}>
+            {/* Image */}
+            <img
+              src={`/images/dressrosa-tattoo/${items[lightboxIdx].image || `tattoo${lightboxIdx + 1}.jpg`}`}
+              alt={items[lightboxIdx].title}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              onError={(e) => {
+                e.currentTarget.style.display = 'none'
+                const fallback = e.currentTarget.parentElement?.querySelector('.lightbox-fallback') as HTMLElement
+                if (fallback) fallback.style.display = 'flex'
+              }}
+            />
+
+            {/* Fallback pattern when image fails */}
+            <div style={{ position: 'absolute', inset: 0, background: `repeating-linear-gradient(-45deg, ${theme.bg3}, ${theme.bg3} 12px, ${theme.bg2} 12px, ${theme.bg2} 24px)`, display: 'none', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '14px' }} className="lightbox-fallback">
               <p style={{ fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent }}>{items[lightboxIdx].style}</p>
               <p style={{ fontFamily: 'var(--font-title)', fontSize: '32px', color: theme.text }}>{items[lightboxIdx].title}</p>
               <p style={{ fontSize: '15px', color: theme.muted, fontStyle: 'italic' }}>{items[lightboxIdx].cat}</p>

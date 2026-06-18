@@ -1,3 +1,22 @@
+const FormInput = ({ label, type = 'text', placeholder, required, theme, ...props }: any) => (
+  <div>
+    <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: theme.accent }}>
+      {label}
+    </label>
+    <input
+      type={type}
+      required={required}
+      placeholder={placeholder}
+      className="w-full bg-transparent border-b border-opacity-15 py-3 text-base outline-none transition-colors focus:border-opacity-100"
+      style={{
+        borderColor: 'rgba(201,169,110,0.15)',
+        color: theme.text,
+      }}
+      {...props}
+    />
+  </div>
+)
+
 export default function Agendamento({ theme, fonts, formSent, setFormSent }: any) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -5,31 +24,30 @@ export default function Agendamento({ theme, fonts, formSent, setFormSent }: any
   }
 
   return (
-    <section id="agendamento" style={{ padding: '108px 52px', background: theme.bg2 }}>
-      <div style={{ maxWidth: '680px', margin: '0 auto' }} data-reveal>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <p style={{ fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Contato</p>
-          <h2 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(36px, 5vw, 60px)' }}>Agendar Tattoo</h2>
-          <div style={{ width: '56px', height: '1px', background: theme.accent, margin: '22px auto 0' }} />
+    <section id="agendamento" className="py-16 md:py-20 lg:py-24 px-6 md:px-8 lg:px-12" style={{ background: theme.bg2 }}>
+      <div className="max-w-2xl mx-auto" data-reveal>
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <p className="text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4" style={{ color: theme.accent }}>
+            Contato
+          </p>
+          <h2 className="font-title text-4xl md:text-5xl lg:text-6xl">Agendar Tattoo</h2>
+          <div className="w-14 h-px mx-auto mt-4 md:mt-6" style={{ background: theme.accent }} />
         </div>
 
         {formSent ? (
-          <div style={{ textAlign: 'center', padding: '48px 32px', border: `1px solid rgba(201,169,110,0.15)`, animation: 'fadeUp 0.5s ease both' }}>
-            <p style={{ fontFamily: 'var(--font-title)', fontSize: '28px', color: theme.accent, marginBottom: '12px' }}>Mensagem enviada</p>
-            <p style={{ fontSize: '16px', color: theme.muted, fontStyle: 'italic', lineHeight: 1.8 }}>Entraremos em contato em breve. ♥</p>
+          <div className="text-center p-8 md:p-12 border border-opacity-15 animate-fadeUp" style={{ borderColor: 'rgba(201,169,110,0.15)' }}>
+            <p className="font-title text-2xl md:text-3xl mb-3" style={{ color: theme.accent }}>
+              Mensagem enviada
+            </p>
+            <p className="text-base leading-relaxed italic opacity-80 mb-8" style={{ color: theme.muted }}>
+              Entraremos em contato em breve. ♥
+            </p>
             <button
               onClick={() => setFormSent(false)}
+              className="border px-6 py-3 text-xs tracking-widest uppercase transition-colors"
               style={{
-                marginTop: '32px',
-                background: 'none',
-                border: `1px solid rgba(201,169,110,0.15)`,
+                borderColor: 'rgba(201,169,110,0.15)',
                 color: theme.accent,
-                padding: '12px 28px',
-                fontSize: '11px',
-                letterSpacing: '3px',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'border-color 0.3s',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = theme.accent)}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(201,169,110,0.15)')}
@@ -38,56 +56,70 @@ export default function Agendamento({ theme, fonts, formSent, setFormSent }: any
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>Nome *</label>
-                <input type="text" required placeholder="Seu nome" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', transition: 'border-color 0.3s' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>WhatsApp / E-mail *</label>
-                <input type="text" required placeholder="Contato" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', transition: 'border-color 0.3s' }} />
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Name and Contact */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <FormInput
+                label="Nome *"
+                placeholder="Seu nome"
+                required
+                theme={theme}
+              />
+              <FormInput
+                label="WhatsApp / E-mail *"
+                placeholder="Contato"
+                required
+                theme={theme}
+              />
             </div>
 
+            {/* Style Reference */}
+            <FormInput
+              label="Anime / Game / Estilo"
+              placeholder="Ex: One Piece, Elden Ring…"
+              theme={theme}
+            />
+
+            {/* Body Area and Size */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <FormInput
+                label="Região do Corpo"
+                placeholder="Braço, costela…"
+                theme={theme}
+              />
+              <FormInput
+                label="Tamanho estimado"
+                placeholder="Ex: 10cm"
+                theme={theme}
+              />
+            </div>
+
+            {/* Description */}
             <div>
-              <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>Anime / Game / Estilo</label>
-              <input type="text" placeholder="Ex: One Piece, Elden Ring…" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', transition: 'border-color 0.3s' }} />
+              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: theme.accent }}>
+                Descrição do Projeto
+              </label>
+              <textarea
+                required
+                rows={4}
+                placeholder="Descreva sua ideia…"
+                className="w-full bg-transparent border-b border-opacity-15 py-3 text-base outline-none resize-none transition-colors focus:border-opacity-100"
+                style={{
+                  borderColor: 'rgba(201,169,110,0.15)',
+                  color: theme.text,
+                  fontFamily: fonts.body,
+                }}
+              />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>Região do Corpo</label>
-                <input type="text" placeholder="Braço, costela…" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', transition: 'border-color 0.3s' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>Tamanho estimado</label>
-                <input type="text" placeholder="Ex: 10cm" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', transition: 'border-color 0.3s' }} />
-              </div>
-            </div>
-
-            <div>
-              <label style={{ display: 'block', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '10px' }}>Descrição do Projeto</label>
-              <textarea required rows={4} placeholder="Descreva sua ideia…" style={{ width: '100%', background: 'transparent', border: 'none', borderBottom: `1px solid rgba(201,169,110,0.15)`, padding: '12px 0', color: theme.text, fontSize: '17px', outline: 'none', resize: 'none', transition: 'border-color 0.3s', fontFamily: fonts.body }} />
-            </div>
-
+            {/* Submit Button */}
             <button
               type="submit"
+              className="w-full py-4 text-xs md:text-sm tracking-widest uppercase font-bold transition-opacity hover:opacity-80 mt-6"
               style={{
                 background: theme.accent,
                 color: theme.bg,
-                border: 'none',
-                padding: '18px',
-                fontSize: '12px',
-                letterSpacing: '4px',
-                textTransform: 'uppercase',
-                fontWeight: '700',
-                cursor: 'pointer',
-                marginTop: '8px',
-                transition: 'opacity 0.3s',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.84')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
             >
               Enviar Pedido
             </button>

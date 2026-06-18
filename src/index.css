@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Hide scrollbar for horizontal scroll containers */
+.overflow-x-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}

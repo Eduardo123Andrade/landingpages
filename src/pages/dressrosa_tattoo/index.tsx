@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import '../../styles/dressrosa.css'
 import { THEME, FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM, WHATSAPP } from './constants'
 
 const FONT_OPTIONS = [
@@ -85,57 +86,49 @@ export default function DressrosaTattoo() {
 
       {/* Nav */}
       <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 200,
-          padding: '22px 52px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          transition: 'background 0.5s, backdrop-filter 0.5s',
-          ...navStyle,
-        }}
+        className="fixed top-0 left-0 right-0 z-50 px-5 md:px-6 lg:px-8 py-4 md:py-5 lg:py-5 flex items-center justify-between transition-all duration-500"
+        style={navStyle}
       >
         <a
           href="#hero"
-          style={{
-            fontFamily: FONTS.title,
-            fontSize: '20px',
-            letterSpacing: '4px',
-            color: theme.accent,
-            textDecoration: 'none',
-            textTransform: 'uppercase',
-          }}
+          className="font-title text-base md:text-lg lg:text-xl tracking-wider uppercase"
+          style={{ color: theme.accent }}
         >
           DressRosa
         </a>
 
-        <div style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
+        {/* Desktop links */}
+        <div className="hidden md:flex gap-8 lg:gap-9 items-center">
           <NavLink href="#portfolio" theme={theme}>Portfólio</NavLink>
           <NavLink href="#estilos" theme={theme}>Estilos</NavLink>
           <NavLink href="#sobre" theme={theme}>Sobre</NavLink>
           <NavLink href="#precos" theme={theme}>Preços</NavLink>
           <a
             href="#agendamento"
+            className="text-xs uppercase tracking-widest font-bold px-6 py-2 transition-opacity hover:opacity-80"
             style={{
               background: theme.accent,
               color: theme.bg,
-              padding: '10px 26px',
-              fontSize: '12px',
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              fontWeight: '700',
-              transition: 'opacity 0.3s',
-              cursor: 'pointer',
             }}
           >
             Agendar
           </a>
         </div>
+
+        {/* Mobile hamburger button */}
+        <button
+          className="md:hidden flex flex-col gap-1"
+          onClick={() => setSwitcherOpen(!switcherOpen)}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <span className="w-6 h-px block" style={{ background: theme.accent }}></span>
+          <span className="w-6 h-px block" style={{ background: theme.accent }}></span>
+          <span className="w-4 h-px block" style={{ background: theme.accent }}></span>
+        </button>
       </nav>
 
       {/* Theme Switcher */}
@@ -267,22 +260,12 @@ const globalStyles = `
     --accent2: ${THEME.accent2};
     --text: ${THEME.text};
     --muted: ${THEME.muted};
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
+    --font-title: ${FONTS.title};
   }
 
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: ${FONTS.body};
     overflow-x: hidden;
   }
 
@@ -299,43 +282,9 @@ const globalStyles = `
     border-radius: 2px;
   }
 
-  @keyframes glitch {
-    0%, 84%, 100% { text-shadow: none; transform: none; }
-    85% { text-shadow: -4px 0 rgba(255,0,58,0.5), 4px 0 rgba(0,212,255,0.5); transform: skewX(-2deg) translateX(-3px); }
-    86% { text-shadow: 4px 0 rgba(255,0,58,0.5), -4px 0 rgba(0,212,255,0.5); transform: skewX(2deg) translateX(3px); }
-    87% { text-shadow: none; transform: none; }
-    88% { text-shadow: -2px 0 var(--accent); transform: translateX(-1px); }
-    89% { text-shadow: none; transform: translateX(0); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.9; }
-  }
-
-  @keyframes panelIn {
-    from { opacity: 0; transform: translateY(8px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  @keyframes faqOpen {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   input::placeholder,
   textarea::placeholder {
     color: #444;
-    font-family: ${FONTS.body};
     font-style: italic;
-  }
-
-  input, textarea {
-    font-family: ${FONTS.body};
   }
 `

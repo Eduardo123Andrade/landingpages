@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 src/pages/dressrosa_tattoo/DS
+
+.workspace
