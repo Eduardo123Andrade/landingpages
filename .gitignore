@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+src/pages/dressrosa_tattoo/DS
+
+.workspace
+
+.wrangler

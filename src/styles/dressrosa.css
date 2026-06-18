@@ -1,0 +1,73 @@
+/* DressRosa Tattoo - Specific Styles */
+
+@layer utilities {
+  /* Animations */
+  @keyframes glitch {
+    0%, 84%, 100% { text-shadow: none; transform: none; }
+    85% { text-shadow: -4px 0 rgba(255,0,58,0.5), 4px 0 rgba(0,212,255,0.5); transform: skewX(-2deg) translateX(-3px); }
+    86% { text-shadow: 4px 0 rgba(255,0,58,0.5), -4px 0 rgba(0,212,255,0.5); transform: skewX(2deg) translateX(3px); }
+    87% { text-shadow: none; transform: none; }
+    88% { text-shadow: -2px 0 var(--accent); transform: translateX(-1px); }
+    89% { text-shadow: none; transform: translateX(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes faqOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes mobileNavIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Animation Classes */
+  .animate-glitch {
+    animation: glitch 9s infinite 2s;
+  }
+
+  .animate-fadeUp {
+    animation: fadeUp 1s ease both;
+  }
+
+  .animate-pulse {
+    animation: pulse 2.5s infinite;
+  }
+
+  .animate-panelIn {
+    animation: panelIn 0.22s ease both;
+  }
+
+  .animate-faqOpen {
+    animation: faqOpen 0.3s ease both;
+  }
+
+  .animate-mobileNavIn {
+    animation: mobileNavIn 0.3s ease both;
+  }
+
+  /* Scrollbar Hiding */
+  .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+}
