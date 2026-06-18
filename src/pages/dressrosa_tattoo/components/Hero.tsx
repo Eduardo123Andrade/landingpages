@@ -2,18 +2,17 @@ export default function Hero({ theme }: any) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center pt-24 md:pt-20 lg:pt-28 pb-12 md:pb-16 lg:pb-20 px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center py-32 md:py-28 lg:py-32 px-6 md:px-8 lg:px-10 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_88px,rgba(201,169,110,0.06)_88px,rgba(201,169,110,0.06)_89px)] pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 md:w-[500px] lg:w-[700px] h-96 md:h-[500px] lg:h-[700px] bg-[radial-gradient(circle,rgba(155,89,182,0.20)_0%,transparent_68%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_88px,rgba(201,169,110,0.025)_88px,rgba(201,169,110,0.025)_89px)] pointer-events-none" />
 
       {[
-        { top: '72px', left: '24px', borderTop: '1px solid rgba(201,169,110,0.15)', borderLeft: '1px solid rgba(201,169,110,0.15)' },
-        { top: '72px', right: '24px', borderTop: '1px solid rgba(201,169,110,0.15)', borderRight: '1px solid rgba(201,169,110,0.15)' },
-        { bottom: '40px', left: '24px', borderBottom: '1px solid rgba(201,169,110,0.15)', borderLeft: '1px solid rgba(201,169,110,0.15)' },
-        { bottom: '40px', right: '24px', borderBottom: '1px solid rgba(201,169,110,0.15)', borderRight: '1px solid rgba(201,169,110,0.15)' },
+        { top: '88px', left: '52px', width: '56px', height: '56px', borderTop: '1px solid rgba(201,169,110,0.4)', borderLeft: '1px solid rgba(201,169,110,0.4)' },
+        { top: '88px', right: '52px', width: '56px', height: '56px', borderTop: '1px solid rgba(201,169,110,0.4)', borderRight: '1px solid rgba(201,169,110,0.4)' },
+        { bottom: '48px', left: '52px', width: '56px', height: '56px', borderBottom: '1px solid rgba(201,169,110,0.4)', borderLeft: '1px solid rgba(201,169,110,0.4)' },
+        { bottom: '48px', right: '52px', width: '56px', height: '56px', borderBottom: '1px solid rgba(201,169,110,0.4)', borderRight: '1px solid rgba(201,169,110,0.4)' },
       ].map((style, i) => (
-        <div key={i} className="absolute w-10 h-10" style={style} />
+        <div key={i} className="absolute" style={style} />
       ))}
 
       <div className="relative z-10 animate-fadeUp max-w-2xl">
@@ -21,9 +20,8 @@ export default function Hero({ theme }: any) {
           Anime · Games · Gothic
         </p>
 
-        <h1 className="font-title text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight md:leading-tight tracking-tighter animate-glitch" style={{ lineHeight: 0.88 }}>
-          DRESS
-          <span style={{ color: theme.accent2 }}>ROSA</span>
+        <h1 className="font-title text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight md:leading-tight tracking-tighter" style={{ lineHeight: 0.88, color: theme.accent }}>
+          DRESSROSA
         </h1>
 
         <p className="font-title text-xs sm:text-sm md:text-base lg:text-lg tracking-wider uppercase opacity-50 mt-3 md:mt-4">

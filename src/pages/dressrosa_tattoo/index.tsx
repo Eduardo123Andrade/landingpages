@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../../styles/dressrosa.css'
-import { THEME, FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM } from './constants'
+import { FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM } from './constants'
 
 const FONT_OPTIONS = [
   { label: 'DM Serif', family: "'DM Serif Display', Georgia, serif" },
@@ -25,14 +25,12 @@ import Footer from './components/Footer'
 // import Artists from './components/Artists'
 
 export default function DressrosaTattoo() {
-  const [theme, setTheme] = useState(THEMES_DATA[1])
-  const [fontIdx, setFontIdx] = useState(0)
+  const [theme] = useState(THEMES_DATA[0])
   const [navStyle, setNavStyle] = useState({})
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null)
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(null)
   const [formSent, setFormSent] = useState(false)
-  const [switcherOpen, setSwitcherOpen] = useState(false)
-  const currentFont = FONT_OPTIONS[fontIdx]
+  const currentFont = FONT_OPTIONS[0]
 
   useEffect(() => {
     const root = document.documentElement
@@ -42,7 +40,7 @@ export default function DressrosaTattoo() {
     root.style.setProperty('--accent', theme.accent)
     root.style.setProperty('--accent2', theme.accent2)
     root.style.setProperty('--font-title', currentFont.family)
-  }, [theme, fontIdx])
+  }, [theme, currentFont.family])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -125,96 +123,8 @@ export default function DressrosaTattoo() {
           </a>
         </div>
 
-        {/* Mobile hamburger button */}
-        <button
-          className="md:hidden flex flex-col gap-1"
-          onClick={() => setSwitcherOpen(!switcherOpen)}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          <span className="w-6 h-px block" style={{ background: theme.accent }}></span>
-          <span className="w-6 h-px block" style={{ background: theme.accent }}></span>
-          <span className="w-4 h-px block" style={{ background: theme.accent }}></span>
-        </button>
       </nav>
 
-      {/* Theme Switcher */}
-      <div style={{ position: 'fixed', bottom: '28px', right: '28px', zIndex: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
-        {switcherOpen && (
-          <div style={{ background: theme.bg2, border: `1px solid rgba(201,169,110,0.15)`, padding: '20px 18px', minWidth: '176px', backdropFilter: 'blur(16px)', animation: 'panelIn 0.22s ease both' }}>
-            <p style={{ fontSize: '9px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '14px' }}>Paleta</p>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-              {THEMES_DATA.map((t, i) => (
-                <button
-                  key={i}
-                  onClick={() => setTheme(t)}
-                  title={t.name}
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    cursor: 'pointer',
-                    border: `2px solid ${theme === t ? 'rgba(255,255,255,0.8)' : 'transparent'}`,
-                    background: t.accent,
-                    transition: 'border-color 0.2s, transform 0.2s',
-                    padding: 0,
-                  }}
-                />
-              ))}
-            </div>
-
-            <p style={{ fontSize: '9px', letterSpacing: '3px', textTransform: 'uppercase', color: theme.accent, marginBottom: '12px' }}>Tipografia</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {FONT_OPTIONS.map((font, i) => (
-                <button
-                  key={i}
-                  onClick={() => setFontIdx(i)}
-                  style={{
-                    background: 'none',
-                    border: `1px solid ${i === fontIdx ? theme.accent : 'rgba(201,169,110,0.15)'}`,
-                    color: i === fontIdx ? theme.accent : '#555',
-                    padding: '8px 10px',
-                    cursor: 'pointer',
-                    fontSize: '15px',
-                    fontFamily: font.family,
-                    textAlign: 'left',
-                    transition: 'all 0.2s',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = theme.accent)}
-                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = i === fontIdx ? theme.accent : 'rgba(201,169,110,0.15)')}
-                >
-                  {font.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-        <button
-          onClick={() => setSwitcherOpen(!switcherOpen)}
-          style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '50%',
-            background: theme.accent,
-            border: 'none',
-            cursor: 'pointer',
-            color: theme.bg,
-            fontSize: '18px',
-            lineHeight: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: `0 4px 20px rgba(201,169,110,0.3)`,
-            transition: 'opacity 0.3s',
-          }}
-          title="Personalizar tema"
-        >
-          ◈
-        </button>
-      </div>
 
       <Hero theme={theme} fonts={FONTS} />
       <Portfolio theme={theme} fonts={FONTS} items={PORTFOLIO_ITEMS} lightboxIdx={lightboxIdx} setLightboxIdx={setLightboxIdx} />
@@ -255,22 +165,22 @@ function NavLink({ href, theme, children }: NavLinkProps) {
 }
 
 const pageStyles = {
-  background: THEME.bg,
-  color: THEME.text,
+  background: '#080808',
+  color: '#f0ede6',
   fontFamily: FONTS.body,
   overflowX: 'hidden' as const,
 }
 
 const globalStyles = `
   :root {
-    --bg: ${THEME.bg};
-    --bg2: ${THEME.bg2};
-    --bg3: ${THEME.bg3};
-    --accent: ${THEME.accent};
-    --accent2: ${THEME.accent2};
-    --text: ${THEME.text};
-    --muted: ${THEME.muted};
-    --font-title: ${FONTS.title};
+    --bg: #080808;
+    --bg2: #0a0a0a;
+    --bg3: #0f0f0f;
+    --accent: #c9a96e;
+    --accent2: #c9a96e;
+    --text: #f0ede6;
+    --muted: #888;
+    --font-title: 'DM Serif Display', Georgia, serif;
   }
 
   body {
