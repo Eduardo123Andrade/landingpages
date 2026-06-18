@@ -1,4 +1,4 @@
-export default function Hero({ theme, fonts }: any) {
+export default function Hero({ theme }: any) {
   return (
     <section
       id="hero"

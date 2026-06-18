@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Portfolio({ theme, fonts, items, lightboxIdx, setLightboxIdx }: any) {
+export default function Portfolio({ theme, items, lightboxIdx, setLightboxIdx }: any) {
   const [touchStart, setTouchStart] = React.useState(0)
   const [touchEnd, setTouchEnd] = React.useState(0)
 

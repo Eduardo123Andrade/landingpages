@@ -1,4 +1,4 @@
-export default function Footer({ theme, fonts, instagram }: any) {
+export default function Footer({ theme, instagram }: any) {
   const FooterLink = ({ href, children }: any) => (
     <a
       href={href}

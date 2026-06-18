@@ -1,4 +1,4 @@
-export default function Sobre({ theme, fonts, instagram }: any) {
+export default function Sobre({ theme, instagram }: any) {
   return (
     <section id="sobre" className="py-16 md:py-20 lg:py-24 px-6 md:px-8 lg:px-12" style={{ background: theme.bg2 }}>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start md:items-center" data-reveal>

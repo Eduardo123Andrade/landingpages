@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../../styles/dressrosa.css'
-import { THEME, FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM, WHATSAPP } from './constants'
+import { THEME, FONTS, PORTFOLIO_ITEMS, ESTILOS, PRECOS, FAQS, THEMES_DATA, INSTAGRAM } from './constants'
 
 const FONT_OPTIONS = [
   { label: 'DM Serif', family: "'DM Serif Display', Georgia, serif" },
@@ -15,6 +15,14 @@ import Precos from './components/Precos'
 import Agendamento from './components/Agendamento'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+
+// Old components (not refactored yet)
+// import Contact from './components/Contact'
+// import FloatingWhatsApp from './components/FloatingWhatsApp'
+// import Gallery from './components/Gallery'
+// import Header from './components/Header'
+// import Services from './components/Services'
+// import Artists from './components/Artists'
 
 export default function DressrosaTattoo() {
   const [theme, setTheme] = useState(THEMES_DATA[1])
@@ -61,9 +69,10 @@ export default function DressrosaTattoo() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
+          const target = e.target as HTMLElement
           if (e.isIntersecting) {
-            e.target.style.opacity = '1'
-            e.target.style.transform = 'translateY(0)'
+            target.style.opacity = '1'
+            target.style.transform = 'translateY(0)'
           }
         })
       },
@@ -71,9 +80,10 @@ export default function DressrosaTattoo() {
     )
 
     document.querySelectorAll('[data-reveal]').forEach((el) => {
-      el.style.opacity = '0'
-      el.style.transform = 'translateY(28px)'
-      el.style.transition = 'opacity 0.9s ease, transform 0.9s ease'
+      const htmlEl = el as HTMLElement
+      htmlEl.style.opacity = '0'
+      htmlEl.style.transform = 'translateY(28px)'
+      htmlEl.style.transition = 'opacity 0.9s ease, transform 0.9s ease'
       observer.observe(el)
     })
 

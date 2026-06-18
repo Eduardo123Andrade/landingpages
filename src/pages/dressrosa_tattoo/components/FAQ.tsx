@@ -1,4 +1,4 @@
-export default function FAQ({ theme, fonts, items, openIdx, setOpenIdx }: any) {
+export default function FAQ({ theme, items, openIdx, setOpenIdx }: any) {
   return (
     <section id="faq" className="py-16 md:py-20 lg:py-24 px-6 md:px-8 lg:px-12" style={{ background: theme.bg }}>
       <div className="max-w-2xl mx-auto">
